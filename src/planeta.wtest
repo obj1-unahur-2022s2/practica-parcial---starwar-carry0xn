@@ -1,0 +1,62 @@
+import personas.*
+import planeta.*
+
+describe "x" { 
+	
+	const mauro = new Soldados(edad = 45)
+	const pistola = new Pistolete(largo=15)
+	const espada = new Espadon(peso=20)
+	
+	const ezequiel = new Docente(edad = 20)
+	const stella = new Docente(edad = 20)
+	
+	const triton = new Planeta(habitantes=#{ezequiel, mauro}, cantidadMuseos = 0)
+	const vulcano = new Planeta(habitantes=#{stella}, cantidadMuseos = 0) 
+		
+	method initialize(){
+		ezequiel.darUnCurso()
+		ezequiel.darUnCurso()
+		ezequiel.darUnCurso()
+		ezequiel.darUnCurso()
+		
+		triton.apaciguar(vulcano)
+		triton.planetaRecibeTributo()
+		triton.planetaRecibeTributo()
+				
+		mauro.sumarArma(pistola)
+		mauro.sumarArma(espada)
+	}
+		
+	test "triton" {
+		assert.equals(triton.delegacionDiplomatica(), #{ezequiel})
+		}
+	test "triton1" {	
+		assert.equals(triton.valorInicialDefensa(), 1)
+		}
+	test "triton2" {
+		assert.notThat(triton.esDeCulto())
+		}
+	test "triton3" {	
+		assert.equals(triton.potenciaReal(), 95)
+		}
+	test "triton4" {	
+		assert.that(triton.necesitaReforzarse())
+		}
+	test "triton5" {
+		assert.equals(triton.habitantesValiosos(), #{ezequiel, mauro})
+	}
+	test "triton6" {
+		assert.equals(triton.cantidadMuseos(), 2)
+		assert.equals(triton.longitudMuralla(), 10)
+		
+	}
+	
+	
+	test "tributo" {
+		assert.equals(vulcano.cantidadMuseos(), 1)
+		
+	}
+	test "soldados" {
+		assert.equals(mauro.potencia(), 75)
+	}
+}

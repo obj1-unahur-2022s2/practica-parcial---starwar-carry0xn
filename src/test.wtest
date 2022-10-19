@@ -14,7 +14,6 @@ describe "x" {
 	
 	const triton = new Planeta(habitantes=#{luisa, julieta, rosa, ana, perla, monica}, cantidadMuseos = 0)
 	
-	
 	method initialize(){
 		rosa.aprenderTecnica()
 		rosa.aprenderTecnica()

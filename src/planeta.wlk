@@ -23,8 +23,8 @@ class Planeta {
 	
 	method habitantesValiosos() = habitantes.filter({ h => h.esHabitanteValioso() })
 	
-	method planetaRecibeTributo() { habitantes.forEach({h => h.ofrecerTributo(self) }) }
+	method planetaRecibeTributo() { habitantes.forEach({h => h.ofreceTributo(self) }) }
 	
 	method apaciguar(planeta) { 
-		self.habitantesValiosos().forEach({ h => h.ofrecerTributo(planeta) }) } 
+		self.habitantesValiosos().forEach({ h => h.ofreceTributo(planeta) }) } 
 }

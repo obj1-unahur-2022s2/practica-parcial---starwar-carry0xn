@@ -36,10 +36,10 @@ class Atleta inherits Persona {
 class Docente inherits Persona {
 	var property cantCursos = 0
 	
-	
 	method darUnCurso() { cantCursos += 1 } 
 	override method inteligencia() {return super() + cantCursos * 2 } 
 	override method esDesacado() = cantCursos > 3
+	
 	
 	override method ofreceTributo(planeta) { planeta.fundarMuseo() }
 	override method valor() { return super() + 5}
@@ -48,13 +48,20 @@ class Docente inherits Persona {
 class Soldados inherits Persona {
 	var property armas = #{}
 	
-	override method potencia() { return super() + armas.sum({ a=> a.potencia()}) }
+	override method potencia() { return super() + armas.sum({ a=> a.potenciaQueOtorga(self)}) }
 	override method ofreceTributo(planeta) { planeta.costruirMuralla(5) }
-	
-	
+	method sumarArma(unArma) { armas.add(unArma) }
 }
 
+class Pistolete {
+	var property largo = 0
+	method potenciaQueOtorga(soldado) = if(soldado.edad() > 30) { largo*3 } else { largo *2 }
+} 
 
+class Espadon {
+	var property peso = 0
+	method potenciaQueOtorga(soldado) = if(soldado.edad() > 40) { peso/2} else { 6 }
+}
 
 
 
