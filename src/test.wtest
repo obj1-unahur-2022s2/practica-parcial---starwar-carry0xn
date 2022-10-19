@@ -1,0 +1,113 @@
+import personas.*
+import planeta.*
+
+describe "x" {
+	
+	const julieta = new Persona(edad = 42)
+	
+	const ana = new Atleta(edad = 25)
+	const rosa = new Atleta(edad = 45)
+	const perla = new Atleta(edad = 28)
+	
+	const monica = new Docente(edad = 45)
+	const luisa = new Docente(edad = 35)
+	
+	const triton = new Planeta(habitantes=#{luisa, julieta, rosa, ana, perla, monica}, cantidadMuseos = 0)
+	
+	
+	method initialize(){
+		rosa.aprenderTecnica()
+		rosa.aprenderTecnica()
+		rosa.aprenderTecnica()
+		rosa.aprenderTecnica()
+		rosa.aprenderTecnica()
+		rosa.aprenderTecnica()
+		
+		monica.darUnCurso()
+		monica.darUnCurso()
+		monica.darUnCurso()
+		monica.darUnCurso()
+		monica.darUnCurso()
+		monica.darUnCurso()
+		
+		luisa.darUnCurso()
+		
+		perla.aprenderTecnica()
+		perla.aprenderTecnica()
+		
+		perla.entrenar(10)
+	}
+	
+	test  "julieta" {
+		
+		assert.equals(julieta.potencia(), 20)
+		assert.equals(julieta.inteligencia(), 8)
+		assert.notThat(julieta.esDesacado())
+	}
+	
+	test  "ana" {
+		
+		assert.equals(ana.potencia(), 28)
+		assert.equals(ana.inteligencia(), 12)
+		assert.that(ana.esDesacado())
+	}
+	test  "rosa" {
+		
+		
+		assert.equals(rosa.potencia(), 52)
+		assert.equals(rosa.inteligencia(), 8)
+		assert.that(rosa.esDesacado())
+	}
+	test  "perla" {
+		
+		
+		assert.equals(perla.potencia(), 44)
+		assert.equals(perla.inteligencia(), 12)
+		assert.notThat(perla.esDesacado())
+	}
+	test  "monica" {
+		
+		
+		assert.equals(monica.potencia(), 20)
+		assert.equals(monica.inteligencia(), 20)
+		assert.that(monica.esDesacado())
+	}
+	test  "luisa" {
+		
+		
+		assert.equals(luisa.potencia(), 20)
+		assert.equals(luisa.inteligencia(), 14)
+		assert.notThat(luisa.esDesacado())
+	}
+	
+	test "planetas" {
+		
+		assert.equals(triton.delegacionDiplomatica(), #{ana,rosa,monica})
+		assert.equals(triton.valorInicialDefensa(), 2)
+		assert.notThat(triton.esDeCulto())
+		assert.equals(triton.potenciaReal(), 184)
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}
